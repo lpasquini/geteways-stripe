@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useLocation,
+} from "react-router-dom";
+
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import StripeForm from './StripeForm';
+
+function StripeWrapper(props) {
+    let location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const pk = params.get('pk') || 'pk_test_TYooMQauvdEDq54NiTphI7jx';
+    return (
+        <StripeProvider apiKey={pk}>
+            <Elements>
+                <StripeForm theme={params.get('theme')}/>
+            </Elements>
+        </StripeProvider>
+    )
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <StripeWrapper/>
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
