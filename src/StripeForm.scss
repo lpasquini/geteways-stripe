@@ -3,9 +3,12 @@
 }
 body,
 html {
-  background-color: #f6f9fc;
-  font-size: 18px;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  padding: 8px;
+  margin: 0;
+  overflow: hidden;
 }
 h1 {
   color: #32325d;
@@ -22,9 +25,11 @@ h1 {
   padding: 0 5px;
 }
 label {
-  color: #6b7c93;
-  font-weight: 300;
-  letter-spacing: 0.025em;
+  color: #777777;
+  font-weight: 400;
+  span{
+    //display: none;
+  }
 }
 button {
   white-space: nowrap;
@@ -38,51 +43,74 @@ button {
   color: #fff;
   border-radius: 4px;
   font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 500;
+  text-transform: capitalize;
   letter-spacing: 0.025em;
   background-color: #6772e5;
   text-decoration: none;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-  margin-top: 10px;
+  margin-top: 20px;
+  width: 100%;
 }
 form {
   margin-bottom: 40px;
   padding-bottom: 40px;
-  border-bottom: 3px solid #e6ebf1;
 }
 button:hover {
   color: #fff;
   cursor: pointer;
   background-color: #7795f8;
-  transform: translateY(-1px);
-  box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
+  //transform: translateY(-1px);
+  //box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
 }
 input,
 .StripeElement {
   display: block;
-  margin: 10px 0 20px 0;
-  max-width: 500px;
-  padding: 10px 14px;
+  margin: 4px 0 15px 0;
+  padding: 12px 14px;
   font-size: 1em;
-  font-family: 'Source Code Pro', monospace;
-  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  font-family: "Poppins", sans-serif;
+  //box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border: 0;
   outline: 0;
   border-radius: 4px;
   background: white;
+  border:1px solid #E9ECEF;
 }
 input::placeholder {
   color: #aab7c4;
 }
 input:focus,
 .StripeElement--focus {
-  box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px, rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+  border-color: #ADB5BD;
+  //box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px, rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
 .StripeElement.IdealBankElement,
 .StripeElement.PaymentRequestButton {
   padding: 0;
+}
+.row{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  >[class^=col-]{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.col-6{
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
 }

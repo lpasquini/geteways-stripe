@@ -8,16 +8,16 @@ const createOptions = (fontSize, padding) => {
         style: {
             base: {
                 fontSize,
-                color: '#424770',
-                letterSpacing: '0.025em',
-                fontFamily: 'Source Code Pro, monospace',
+                color: '#000',
+                letterSpacing: '0',
+                fontFamily: 'Poppins, sans-serif',
                 '::placeholder': {
                     color: '#aab7c4',
                 },
                 ...(padding ? {padding} : {}),
             },
             invalid: {
-                color: '#9e2146',
+                color: '##E60023',
             },
         },
     };
@@ -77,7 +77,7 @@ class StripeForm extends Component {
             <div className={theme}>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Card number
+                        <span>Card number</span>
                         <CardNumberElement
                             onBlur={this.handleBlur}
                             onChange={this.handleChange}
@@ -86,27 +86,29 @@ class StripeForm extends Component {
                             {...createOptions(this.props.fontSize)}
                         />
                     </label>
-                    <label>
-                        Expiration date
-                        <CardExpiryElement
-                            onBlur={this.handleBlur}
-                            onChange={this.handleChange}
-                            onFocus={this.handleFocus}
-                            onReady={this.handleReady}
-                            {...createOptions(this.props.fontSize)}
-                        />
-                    </label>
-                    <label>
-                        CVC
-                        <CardCvcElement
-                            onBlur={this.handleBlur}
-                            onChange={this.handleChange}
-                            onFocus={this.handleFocus}
-                            onReady={this.handleReady}
-                            {...createOptions(this.props.fontSize)}
-                        />
-                    </label>
-                    <button>Pay</button>
+                    <div className="row"> 
+                        <label className="col-6">
+                            <span>Expiration date</span>
+                            <CardExpiryElement
+                                onBlur={this.handleBlur}
+                                onChange={this.handleChange}
+                                onFocus={this.handleFocus}
+                                onReady={this.handleReady}
+                                {...createOptions(this.props.fontSize)}
+                            />
+                        </label>
+                        <label className="col-6">
+                            <span>CVC</span>
+                            <CardCvcElement
+                                onBlur={this.handleBlur}
+                                onChange={this.handleChange}
+                                onFocus={this.handleFocus}
+                                onReady={this.handleReady}
+                                {...createOptions(this.props.fontSize)}
+                            />
+                        </label>
+                    </div>
+                    <button>Payment</button>
                 </form>
             </div>
         );
